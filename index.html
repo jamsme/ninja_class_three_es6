@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ninja Class Three</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            class Ninja {
+                constructor(name, health, speed, strength) {
+                    this.name = name;
+                    this.health = 100;
+                    this.speed = 3;
+                    this.strength = 3;
+                }
+
+                sayName() {
+                    console.log(`This ninja's name is ${this.name}`)
+                }
+
+                showStats() {
+                    console.log(`My name is ${this.name}, Health: ${this.health}, Strength: ${this.strength}, Speed: ${this.speed}`)
+                }
+
+                drinkSake() {
+                    this.health += 10;
+                    console.log(`Health going up`)
+                }
+            }
+
+            class Sensei extends Ninja {
+                constructor(name, health, speed, strength, wisdom) {
+                    super(name, health, speed, strength);
+                    this.wisdom = 10;
+                    this.health = 200;
+                    this.speed = 10;
+                    this.strength = 10;
+                }
+
+                speakWisdom() {
+                    const sake = super.drinkSake();
+                    console.log(`Sensei is speaking some wisdom`)
+                }
+            }
+
+            const ninja1 = new Ninja("TMNT")
+            const superSensei = new Sensei("Master Splinter")
+            ninja1.drinkSake();
+            ninja1.sayName();
+            ninja1.showStats();
+            superSensei.speakWisdom();
+            superSensei.showStats();
+
+        })
+
+    </script>
+</head>
+<body>
+    <h3>Ninja Class Three</h3>
+</body>
+</html>
